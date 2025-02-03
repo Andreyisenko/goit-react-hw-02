@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import css from './Options.module.css';
 
-const Options = ({updateFeedback}) => {
-console.log(updateFeedback);
+const Options = ({updateFeedback }) => {
+// console.log(updateFeedback);
 
 
   return (
