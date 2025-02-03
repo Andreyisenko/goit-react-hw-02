@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Description from './Description/Description';
 import Feedback from './Feedback/Feedback';
 import Options from './Options/Options';
 import Notification from './Notification/Notification ';
 const App = () => {
-  const [feedData, setFeedData] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [feedData, setFeedData] = useState(() => {
+    const dataStorage = localStorage.getItem('key');
+    console.log(dataStorage);
+    if (dataStorage !== null) {
+      return JSON.parse(dataStorage);
+    }
+
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
   });
-  // console.log((feedData.good));
+
+  useEffect(() => {
+    localStorage.setItem('key', JSON.stringify(feedData));
+  }, [feedData]);
 
   const updateFeedback = feedbackType => {
-    // console.log(feedbackType);
     if (feedbackType === 'good') {
       setFeedData(prev => ({ ...prev, good: prev.good + 1 }));
     }
@@ -24,14 +34,24 @@ const App = () => {
       setFeedData(prev => ({ ...prev, bad: prev.bad + 1 }));
     }
   };
+  const resetFeedback = () => {
+    setFeedData({
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    });
+  };
+
   const totalFeedback = feedData.good + feedData.neutral + feedData.bad;
-  console.log(typeof(totalFeedback));
 
   return (
     <div>
-      goit-react-hw-02
       <Description />
-      <Options updateFeedback={updateFeedback} />
+      <Options
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+        updateFeedback={updateFeedback}
+      />
       {(totalFeedback > 0 && (
         <Feedback totalFeedback={totalFeedback} feedData={feedData} />
       )) ||

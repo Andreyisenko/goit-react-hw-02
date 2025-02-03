@@ -8,31 +8,28 @@
   background-color: rgb(159, 159, 235);
   height: 40px;
   border-radius: 10px;
-  border-color:  rgb(7, 104, 13);
-  transition: background-color 300ms ease-in-out, 
-  color 300ms ease-in-out,
-  border-color 300ms ease-in-out;
+  border-color: rgb(7, 104, 13);
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out,
+    border-color 300ms ease-in-out;
 }
 
 .btn:hover {
   background-color: rgb(7, 104, 13);
   color: rgb(203, 224, 8);
-  border-color:  rgb(203, 224, 8)
+  border-color: rgb(203, 224, 8);
 }
 .btn.ntr:hover {
-    background-color: orange;
-    color: rgb(13, 173, 173);
-    border-color:  rgb(13, 173, 173)
+  background-color: orange;
+  color: rgb(13, 173, 173);
+  border-color: rgb(13, 173, 173);
 }
 .btn.bad:hover {
-    background-color: rgb(199, 68, 12);
-    color: rgb(182, 210, 210);
-    border-color:  rgb(182, 210, 210)
+  background-color: rgb(199, 68, 12);
+  color: rgb(182, 210, 210);
+  border-color: rgb(182, 210, 210);
 }
 .btn.res:hover {
-    background-color: rgb(63, 49, 71);
-    color: rgb(255, 255, 255);
-    border-color:  rgb(255, 255, 255)
+  background-color: rgb(63, 49, 71);
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
 }
-
-

@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import css from './Options.module.css';
 
-const Options = ({updateFeedback }) => {
-// console.log(updateFeedback);
-
+const Options = ({ updateFeedback, totalFeedback, resetFeedback }) => {
+  // console.log(updateFeedback);
 
   return (
     <div className={css.wraper}>
@@ -22,7 +21,11 @@ const Options = ({updateFeedback }) => {
       >
         Bad
       </button>
-      <button className={clsx(css.btn, css.res)}>Reset</button>{' '}
+      {totalFeedback > 0 && (
+        <button onClick={resetFeedback} className={clsx(css.btn, css.res)}>
+          Reset
+        </button>
+      )}{' '}
     </div>
   );
 };
