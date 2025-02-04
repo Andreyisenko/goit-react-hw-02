@@ -7,7 +7,6 @@ import Notification from './Notification/Notification ';
 const App = () => {
   const [feedData, setFeedData] = useState(() => {
     const dataStorage = localStorage.getItem('key');
-    console.log(dataStorage);
     if (dataStorage !== null) {
       return JSON.parse(dataStorage);
     }
@@ -43,6 +42,7 @@ const App = () => {
   };
 
   const totalFeedback = feedData.good + feedData.neutral + feedData.bad;
+  const goodFeedback = Math.round((feedData.good / totalFeedback) * 100);
 
   return (
     <div>
@@ -53,7 +53,11 @@ const App = () => {
         updateFeedback={updateFeedback}
       />
       {(totalFeedback > 0 && (
-        <Feedback totalFeedback={totalFeedback} feedData={feedData} />
+        <Feedback
+          goodFeedback={goodFeedback}
+          totalFeedback={totalFeedback}
+          feedData={feedData}
+        />
       )) ||
         (totalFeedback === 0 && <Notification />)}
     </div>

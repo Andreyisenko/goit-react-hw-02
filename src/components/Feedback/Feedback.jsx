@@ -1,5 +1,5 @@
 import css from './Feedback.module.css';
-const Feedback = ({ feedData, totalFeedback }) => {
+const Feedback = ({ feedData, totalFeedback, goodFeedback }) => {
   // console.log(good);
 
   return (
@@ -8,9 +8,7 @@ const Feedback = ({ feedData, totalFeedback }) => {
       <p className={css.text}>Neutral: {feedData.neutral}</p>
       <p className={css.text}>Bad: {feedData.bad}</p>
       <p className={css.text}>Total: {totalFeedback}</p>
-      <p className={css.text}>
-        Positive: {Math.round((feedData.good / totalFeedback) * 100)}%
-      </p>
+      <p className={css.text}>Positive: {goodFeedback}%</p>
     </div>
   );
 };
